@@ -1,0 +1,11 @@
+BUNDLES = [
+    "//apps/quantum/app:onos-apps-quantum-app",
+]
+
+onos_app(
+    category = "Graphical User Interface",
+    description = "ONOS OSGi GUI2 Custom-View app quantum.",
+    included_bundles = BUNDLES,
+    title = "Optical Application",
+    url = "http://onosproject.org",
+)

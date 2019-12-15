@@ -18,6 +18,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Gui2TopoLibModule } from 'gui2-topo-lib';
 import { FmGui2LibModule } from 'fm-gui2-lib';
 import { RoadmGuiLibModule } from 'roadm-gui-lib';
+import { QuantumGuiLibModule } from 'quantum-gui-lib';
 
 /**
  * The set of Routes in the application - can be chosen from nav menu or
@@ -97,6 +98,10 @@ const onosRoutes: Routes = [
         path: '',
         redirectTo: 'topo2', // Default to Topology view
         pathMatch: 'full'
+    },
+    {
+        path: 'quantum-gui',
+        loadChildren: 'quantum-gui-lib#QuantumGuiLibModule'
     }
 ];
 

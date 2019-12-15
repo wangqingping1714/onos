@@ -127,6 +127,7 @@ genrule(
         ":_root_level_files",
         ":_web_app_all",
         "//apps/roadm/web/roadm-gui:roadm-gui-lib-build",
+	"//apps/quantum/web/quantum-gui:quantum-gui-lib-build",
     ],
     outs = [
         "onos-gui2-ng-build-prod.log",
@@ -154,6 +155,9 @@ genrule(
           " tar xf $$ROOT/$${ROADM_GUI_LIB_FILES[0]} &&" +
           " mv package/ node_modules/roadm-gui-lib/ &&" +
           # End of add in modules from external packages
+	  "QUANTUM_GUI_LIB_FILES=($(locations //apps/quantum/web/quantum-gui:quantum-gui-lib-build)) &&"+ # An array of filenames - sorted by time created
+	  "tar xf $$ROOT/$${QUANTUM_GUI_LIB_FILES[0]} &&" +
+	  "mv package/ node_modules/quantum-gui-lib/ &&" +
           " mkdir -p src/main/webapp/app/fw &&" +
           " (cd src/main/webapp/app/fw &&" +
           "  jar xf $$ROOT/$(location //web/gui2-fw-lib:gui2_fw_lib_ext_css)) &&" +
